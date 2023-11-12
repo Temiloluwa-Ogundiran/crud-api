@@ -27,7 +27,7 @@ export const register = async (req: express.Request, res: express.Response) => {
       },
     });
 
-    return res.status(200).json(user).end();
+    return res.status(200).json(user);
   } catch (error) {
     console.log(error);
     return res.status(400).send("Error");
