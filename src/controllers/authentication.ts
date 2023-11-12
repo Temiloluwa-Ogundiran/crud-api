@@ -8,13 +8,13 @@ export const register = async (req: express.Request, res: express.Response) => {
     const { email, password, username } = req.body;
 
     if (!email || !password || !username) {
-      return res.status(400);
+      return res.status(400).send("Incomplete info");
     }
 
     const existingUser = await getUserByEmail(email);
 
     if (existingUser) {
-      return res.status(400);
+      return res.status(400).send("User already exist");
     }
 
     const salt = random();
