@@ -40,7 +40,7 @@ export const login = async (req: express.Request, res: express.Response) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400);
+      return res.status(401);
     }
 
     const user = await getUserByEmail(email).select(
